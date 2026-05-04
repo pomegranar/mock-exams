@@ -1,6 +1,6 @@
 # Mock Exam Generator
 
-A [pi agent](https://github.com/mariozechner/pi-coding-agent) skill that generates printable mock midterms and finals (PDF) from a course's lecture materials.
+An AI-agent skill that generates printable mock midterms and finals (PDF) from a course's lecture materials. Designed for [pi agent](https://github.com/mariozechner/pi-coding-agent) but also works with **Claude** and **Codex**.
 
 ## What it does
 
@@ -15,11 +15,13 @@ Everything is compiled to PDF via `latexmk` using the `exam` LaTeX class.
 ## Quick start
 
 1. **Install LaTeX** — MacTeX (macOS), TeX Live (Linux), or MiKTeX (Windows).
-2. **Run the skill** in pi agent:
+2. **Run the skill** — load `SKILL.md` and `template.tex`, then prompt:
    ```
    Create a mock midterm for the lectures in ./course_materials/
    ```
-   The skill will ask you to confirm scope, output location, and course details.
+   The agent will ask you to confirm scope, output location, and course details.
+   
+   Works best in agents that support reading files and executing shell commands (pi, Claude, Codex).
 3. The `.tex` source and compiled `.pdf` are dropped into `./Mock_exams/`.
 
 ## Requirements
@@ -41,7 +43,7 @@ Everything is compiled to PDF via `latexmk` using the `exam` LaTeX class.
 
 | File | Purpose |
 |------|---------|
-| `SKILL.md` | The skill instructions (what pi agent follows) |
+| `SKILL.md` | The skill instructions (works with pi agent, Claude, Codex, etc.) |
 | `template.tex` | Blank LaTeX exam template |
 | `README.md` | This file |
 
