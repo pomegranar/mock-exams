@@ -14,7 +14,8 @@ User asks to "create a mock exam," "make a practice midterm," "generate a final 
 ## Inputs to gather
 
 Before generating, confirm:
-1. **Source folder** — where the lecture content lives (PDFs, .txt, .md, slides).
+1. **Syllabus** (if present) — check the source folder for a `syllabus` file first. It gives essential context: course level, difficulty expectations, prerequisites, whether the course is math-heavy or conceptual, and anything the instructor flags as "key topics" or "learning objectives." This shapes question tone and difficulty before you even open the lectures.
+2. **Source folder** — where the lecture content lives (PDFs, ..txt, .md, slides).
 2. **Scope** — midterm (subset of lectures) or final (all lectures). Confirm which lectures are in scope.
 3. **Output folder** — where to drop the `.tex` and `.pdf`. Default: `./Mock_exams/`.
 4. **Course code & term** — for the header (e.g., "STATS 202 — Spring 2026").
@@ -22,7 +23,8 @@ Before generating, confirm:
 
 ## Process
 
-1. **Survey the lectures.** Use `find` + `read` to list every lecture file. Read each one to extract: key definitions, frameworks, formulas, computational examples, conceptual themes. Cover *every* lecture — do not rely on summaries that skip files. If the user later asks "why didn't you cover X?", that's a process failure.
+1. **Check for a syllabus.** If a syllabus file exists in the source folder, read it first. Note the course level, stated learning objectives, key topics, and any instructor emphasis. Use this to calibrate question difficulty and framing before generating.
+2. **Survey the lectures.** Use `find` + `read` to list every lecture file. Read each one to extract: key definitions, frameworks, formulas, computational examples, conceptual themes. Cover *every* lecture — do not rely on summaries that skip files. If the user later asks "why didn't you cover X?", that's a process failure.
 2. **Outline the exam.** Pick a question count per section that hits the target points and gives every lecture at least one question. See "Default structure" below.
 3. **Write the `.tex` file** using the `exam` class. Follow the template in `template.tex`.
 4. **Compile** with `latexmk -pdf <file>.tex` from the output folder. Check page count and watch for overflow/header-overlap warnings.
