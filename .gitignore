@@ -1,0 +1,22 @@
+# LaTeX compilation artifacts
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.bbl
+*.blg
+*.run.xml
+
+# Generated mock exams (keep source .tex, drop runtime temps)
+Mock_exams/*.log
+Mock_exams/*.aux
+Mock_exams/*.out
+Mock_exams/*.fls
+Mock_exams/*.fdb_latexmk
+
+# OS
+.DS_Store
+Thumbs.db

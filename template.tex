@@ -1,0 +1,204 @@
+%% ===========================================================================
+%% Mock Exam Template — copy and adapt for any course.
+%%
+%% Replace ALL CAPS placeholders:
+%%   COURSECODE         → e.g. STATS 202
+%%   COURSE_TITLE       → e.g. Modeling and Predicting
+%%   EXAM_KIND          → e.g. Mock Midterm Exam / Mock Final Exam
+%%   COVERAGE_LINE      → e.g. Covers Lectures W1-1 through W2-4
+%%   TERM               → e.g. Spring 2026
+%%
+%% Compile with:  latexmk -pdf <file>.tex
+%% Clean aux:     latexmk -c
+%% ===========================================================================
+\documentclass[11pt,addpoints]{exam}
+
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning, calc}
+
+\geometry{margin=1in, top=0.8in, bottom=0.8in}
+
+%% ---- Header / Footer -------------------------------------------------------
+%% IMPORTANT: keep \firstpageheader empty — text here overlaps the title block.
+\pagestyle{headandfoot}
+\firstpageheader{}{}{}
+\runningheader{COURSECODE}{EXAM_KIND}{Page \thepage\ of \numpages}
+\runningheadrule
+\firstpagefooter{}{\thepage}{}
+\runningfooter{}{\thepage}{}
+
+%% Toggle to \printanswers to render the answer-key version.
+\noprintanswers
+
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\PR}{\mathbb{P}}
+\newcommand{\N}{\mathcal{N}}
+\newcommand{\1}{\mathbf{1}}
+
+\begin{document}
+
+%% ============================================================================
+%% COVER
+%% ============================================================================
+\begin{center}
+  {\LARGE \textbf{COURSECODE — COURSE_TITLE}} \\[6pt]
+  {\large \textbf{EXAM_KIND}} \\[4pt]
+  {\normalsize COVERAGE_LINE}
+\end{center}
+
+\vspace{0.2cm}
+\noindent\textbf{Name:} \underline{\hspace{6cm}} \hfill \textbf{Date:} \underline{\hspace{4cm}}
+
+\vspace{0.4cm}
+\noindent\rule{\textwidth}{0.4pt}
+
+%% ---- Manual scoring table -------------------------------------------------
+%% Do NOT use \gradetable[h][parts] — it errors. \gradetable[h][questions]
+%% works but tends to overflow with many questions. The manual table below is
+%% reliable.
+\begin{center}
+\renewcommand{\arraystretch}{1.45}
+\begin{tabular}{|l|c|c|}
+  \hline
+  \textbf{Section} & \textbf{Possible} & \textbf{Earned} \\
+  \hline
+  Part I: Multiple Choice (Q1--12)              & 24  & \\
+  \hline
+  Part II: True/False with Justification (Q13--18) & 18  & \\
+  \hline
+  Part III: Short Answer (Q19--22)              & 28  & \\
+  \hline
+  Part IV: Problems (Q23--25)                   & 30  & \\
+  \hline
+  \textbf{Total}                                & \textbf{100} & \\
+  \hline
+\end{tabular}
+\end{center}
+
+\noindent\rule{\textwidth}{0.4pt}
+
+\vspace{0.3cm}
+\noindent\textbf{Instructions:}
+\begin{itemize}[nosep]
+  \item This exam has \numpages\ pages and \numquestions\ questions, totaling \numpoints\ points.
+  \item For multiple choice, circle exactly one answer.
+  \item For True/False, circle T or F \emph{and} provide a 1--2 sentence justification.
+  \item Show all work for short answer and problems; unsupported answers may receive no credit.
+  \item A formula sheet is included on the page before the answer key.
+  \item No calculators, notes, or electronic devices unless otherwise stated.
+\end{itemize}
+
+%% ============================================================================
+%% PART I — MULTIPLE CHOICE
+%% ============================================================================
+\newpage
+\begin{center}
+  {\large \textbf{Part I: Multiple Choice}} \\[3pt]
+  \textit{Circle the single best answer. (2 points each)}
+\end{center}
+
+\begin{questions}
+
+\question[2]
+SAMPLE_MC_STEM_HERE
+\begin{choices}
+  \choice Distractor A
+  \CorrectChoice Correct answer
+  \choice Distractor C
+  \choice Distractor D
+\end{choices}
+
+%% ... add more \question[2] blocks ...
+
+%% ============================================================================
+%% PART II — TRUE / FALSE
+%% ============================================================================
+\newpage
+\begin{center}
+  {\large \textbf{Part II: True / False with Justification}} \\[3pt]
+  \textit{Circle T or F. Then give a 1--2 sentence justification. (3 points each)}
+\end{center}
+
+\question[3]
+\textbf{T \quad / \quad F} \quad SAMPLE_TF_STATEMENT_HERE
+\vspace{1.2cm}
+
+%% ... add more \question[3] T/F blocks ...
+
+%% ============================================================================
+%% PART III — SHORT ANSWER
+%% ============================================================================
+\newpage
+\begin{center}
+  {\large \textbf{Part III: Short Answer}} \\[3pt]
+  \textit{Answer in 2--5 sentences unless told otherwise.}
+\end{center}
+
+\question[7]
+SAMPLE_SHORT_ANSWER_PROMPT_HERE
+\makeemptybox{4cm}
+
+%% ... add more short-answer questions ...
+
+%% ============================================================================
+%% PART IV — PROBLEMS (multi-part)
+%% ============================================================================
+\newpage
+\begin{center}
+  {\large \textbf{Part IV: Problems}} \\[3pt]
+  \textit{Show all work. Partial credit is awarded.}
+\end{center}
+
+\question[10]
+SAMPLE_PROBLEM_SETUP_HERE
+\begin{parts}
+  \part[3] First sub-question.
+  \makeemptybox{2.5cm}
+  \part[3] Second sub-question.
+  \makeemptybox{2.5cm}
+  \part[4] Third sub-question.
+  \makeemptybox{3cm}
+\end{parts}
+%% NOTE: never leave \begin{parts}\end{parts} empty — that triggers
+%% "Something's wrong--perhaps a missing \item".
+
+%% ... add more problems ...
+
+\end{questions}
+
+%% ============================================================================
+%% FORMULA SHEET
+%% ============================================================================
+\newpage
+\begin{center}
+  {\large \textbf{Formula Sheet}}
+\end{center}
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Bayes' rule:} $\PR(A|B) = \PR(B|A)\PR(A)/\PR(B)$
+  \item \textbf{Law of total probability:} $\PR(B)=\sum_i \PR(B|A_i)\PR(A_i)$
+  \item ADD_DOMAIN_SPECIFIC_FORMULAS_HERE
+\end{itemize}
+
+%% ============================================================================
+%% ANSWER KEY
+%% ============================================================================
+\newpage
+\printanswers   % render solutions on these pages
+\begin{center}
+  {\Large \textbf{Answer Key}}
+\end{center}
+
+\begin{enumerate}[leftmargin=*]
+  \item \textbf{Q1:} Correct answer + 1-line rationale.
+  \item \textbf{Q2:} ...
+  %% Provide WORKED solutions for problems (not just final numbers).
+\end{enumerate}
+
+\end{document}
